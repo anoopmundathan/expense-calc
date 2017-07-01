@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 export default class ExpenseList extends Component {
     constructor(props) {
         super(props);
         this.state = {
             list: [],
-            amount: ''
+            amount: 0
         }
     }
 
@@ -20,12 +21,17 @@ export default class ExpenseList extends Component {
             list: this.state.list.concat(this.state.amount),
             amount: ''
         });
+    }
 
+    onClickDone() {
+        const sum = this.state.list.reduce((prev, next) => {
+            return parseInt(prev) + parseInt(next);
+        },0);
+        this.props.onDone(this.props.id, sum);
     }
 
     render() {
-        const expenseList = this.state.list.map(item => <li>{item}</li>);
-        console.log(expenseList);
+        const expenseList = this.state.list.map((item, index) => <li key={index}>{item}</li>);
         return(
             <div>
                 <ul>
@@ -36,12 +42,21 @@ export default class ExpenseList extends Component {
                     placeholder='Enter Amount'
                     onChange={this.onChange.bind(this)}
                     value={this.state.amount}
-                    type="text"/>
+                    type="number"/>
                 <input
                     value='Add' 
                     onClick={this.onClickAdd.bind(this)}
                     type="button"/>
+                <input 
+                    value='Done'
+                    onClick={this.onClickDone.bind(this)}
+                    type="button"/>
             </div>
         );
     }
+}
+
+ExpenseList.PropTypes = {
+    id: PropTypes.string.isRequired,
+    onDone: PropTypes.func.isRequired
 }
