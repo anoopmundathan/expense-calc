@@ -8,7 +8,8 @@ body {
     padding: 0;
     width: 100%;
     height: 100%;
-    font: normal 16px/1.5 'Helvetica Neue'
+    font: normal 16px/1.5 'Helvetica Neue';
+    text-align: center;
 }
 
 .person-container {
@@ -16,7 +17,6 @@ body {
     margin: 0 auto;
     display: flex;
     border: 1px solid green;
-    
 }
 
 .person {
