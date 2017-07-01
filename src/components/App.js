@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import ExpenseList from './ExpenseList';
 
 const Person = (props) => {
     return(
@@ -68,12 +69,20 @@ class App extends Component {
                             onClickAdd={this.onClickAdd.bind(this)}/>
                     }
 
+                    {personOne &&
+                        <ExpenseList />
+                    }
+
                     {!personTwo &&
                         <Person
                             id='personTwo' 
                             onClickAdd={this.onClickAdd.bind(this)}/>
                     }
-                    
+
+                    {personTwo &&
+                        <ExpenseList />
+                    }
+
                 </div>
             </div>
         );
