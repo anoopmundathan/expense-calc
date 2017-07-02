@@ -165,9 +165,10 @@ class App extends Component {
 
                     {personOneUpdated && personTwoUpdated && !personOneFinalAmount &&
                      !personTwoFinalAmount &&
-                        <div>
+                        <div className='calculate-container'>
                             <input
-                                value='calculate' 
+                                className='calculate'
+                                value='Ethrayayi' 
                                 type="button"
                                 onClick={this.onCalculate.bind(this)}/>
                         </div>

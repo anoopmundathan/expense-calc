@@ -35,7 +35,6 @@ body {
     padding: 1%;
     width: 90%;
     margin: 5% auto;
-    /*box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2);*/
 
 }
 
@@ -46,6 +45,7 @@ body {
     padding-bottom: 1%;
     border-radius: 3px;
     background: linear-gradient(45deg, #fff, #9baec8);
+    border: 1px solid #f26d5b;
 }
 
 .person-name,
@@ -71,5 +71,84 @@ body {
     max-width: 200px;
     border-radius: 50%;
     border: 3px solid #fff;
+    cursor: pointer;
+    transition: .5s all ease;
 }
 
+.person-image img:hover {
+    border: 3px solid #f26d5b;
+}
+
+.list-container {
+
+}
+.list ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.list ul li {
+    font-size: 1em;
+    margin-top: 5px;
+    padding: 10px;
+    border-bottom: 1px solid #a3a1a1;
+    background: #fff;
+    color: #6a60a9;
+}
+
+.form-container {
+    width: 100%;
+    margin-top: 10px;
+    display: flex;
+    align-items: left;
+}
+.form-amount-container {
+    width: 65%;
+    margin-right: 10px;
+}
+
+.form-button-container {
+    width: 35%;
+    display: flex;
+}
+
+.form-amount {
+    width: 100%;
+    border: none;
+    font-size: 1em;
+    padding: 10px;
+    background: #ff7473;
+    margin-right: 10px;
+    color: #fff;
+}
+.form-add {
+    border: none;
+    font-size: 1em;
+    padding: 10px;
+    margin-right: 10px;
+    background: #3ac569;
+}
+.form-done {
+    border: none;
+    font-size: 1em;
+    padding: 10px;
+    align-items: right;
+    background: #1ec0ff;
+}
+
+.form-add,
+.form-done {
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.calculate {
+    border: none;
+    font-size: 2em;
+    padding: 10px;
+    align-items: right;
+    background: #e94e77;
+    cursor: pointer;
+    color: #fff;
+    border-radius: 5px;
+}

@@ -33,24 +33,38 @@ export default class ExpenseList extends Component {
     render() {
         const expenseList = this.state.list.map((item, index) => <li key={index}>{item}</li>);
         return(
-            <div>
-                <ul>
-                    {expenseList}
-                </ul>
-                
-                <input 
-                    placeholder='Enter Amount'
-                    onChange={this.onChange.bind(this)}
-                    value={this.state.amount}
-                    type="number"/>
-                <input
-                    value='Add' 
-                    onClick={this.onClickAdd.bind(this)}
-                    type="button"/>
-                <input 
-                    value='Done'
-                    onClick={this.onClickDone.bind(this)}
-                    type="button"/>
+            <div className='list-container'>
+                <div className='list'>
+                    <ul>
+                        {expenseList}
+                    </ul>
+                </div>
+
+                <div className='form-container'>
+                    <div className='form-amount-container'>
+                        <input
+                            className='form-amount' 
+                            placeholder='Enter Amount'
+                            onChange={this.onChange.bind(this)}
+                            value={this.state.amount}
+                            type="number"/>
+                    </div>
+
+                    <div className='form-button-container'>
+                        <input
+                            className='form-add'
+                            value='Add' 
+                            onClick={this.onClickAdd.bind(this)}
+                            disabled={!this.state.amount}
+                            type="button"/>
+                        <input 
+                            className='form-done'
+                            value='Done'
+                            onClick={this.onClickDone.bind(this)}
+                            disabled={!this.state.list.length}
+                            type="button"/>
+                    </div>
+                </div>
             </div>
         );
     }
