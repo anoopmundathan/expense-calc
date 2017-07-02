@@ -20,7 +20,6 @@ Person.PropTypes = {
 }
 
 const PersonImage = (props) => <div className='person-image'><p>{props.id}</p></div>
-
 const AddButton = (props) => {
     return(
         <div className='person-add-button'>
@@ -114,7 +113,9 @@ class App extends Component {
 
         return(
             <div className='container'>
-                <div><h1>Expense</h1></div>
+                <div className='header'>
+                    <h1>Expense</h1>
+                </div>
                 <div className='person-container'>
 
                     {!personOne &&
