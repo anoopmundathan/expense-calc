@@ -5,7 +5,8 @@
   "author": "Anoop Mundathan <anoop.mundathan@gmail.com> (http://anoopmundathan.me/)",
   "license": "MIT",
   "scripts": {
-    "start": "webpack-dev-server --progress"
+    "start": "webpack-dev-server --progress",
+    "build": "webpack -p"
   },
   "dependencies": {
     "babel-core": "^6.25.0",
