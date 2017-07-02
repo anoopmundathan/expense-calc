@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import ExpenseList from './ExpenseList';
 
+import anoopPic from '../anoop.png';
+import vipinPic from '../vipin.png';
+
 const Person = (props) => {
     return(
         <div className='person'>
-            <PersonImage 
-                id={props.id}/>
-            <AddButton 
+            <Image 
+                image={props.image}
                 id={props.id}
                 onClickAdd={props.onClickAdd}/>
         </div>
@@ -15,24 +17,24 @@ const Person = (props) => {
 }
 
 Person.PropTypes = {
+    image: PropTypes.string.isRequired,
     id: PropTypes.string.isRequired,
     onClickAdd: PropTypes.func.isRequired
 }
 
-const PersonImage = (props) => <div className='person-image'><p>{props.id}</p></div>
-const AddButton = (props) => {
+const Image = (props) => {
     return(
-        <div className='person-add-button'>
-            <input 
-                value='Add'
-                type="button"
-                onClick={props.onClickAdd.bind(null, props.id)}/>
-            </div>
+        <div className='person-image'>
+            <img
+                onClick={props.onClickAdd.bind(null, props.id)}
+                src={props.image} />
+        </div>
     );
 }
 
-AddButton.PropTypes = {
+Image.PropTypes = {
     id: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
     onClickAdd: PropTypes.func.isRequired
 }
 
@@ -114,12 +116,13 @@ class App extends Component {
         return(
             <div className='container'>
                 <div className='header'>
-                    <h1>Expense</h1>
+                    <h1>masakanak</h1>
                 </div>
                 <div className='person-container'>
 
                     {!personOne &&
                         <Person
+                            image={anoopPic}
                             id='personOne'
                             onClickAdd={this.onClickAdd.bind(this)}/>
                     }
@@ -141,6 +144,7 @@ class App extends Component {
 
                     {!personTwo &&
                         <Person
+                            image={vipinPic}
                             id='personTwo' 
                             onClickAdd={this.onClickAdd.bind(this)}/>
                     }
