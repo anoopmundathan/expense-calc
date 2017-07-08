@@ -25,8 +25,9 @@ export default class ExpenseList extends Component {
 
     onClickDone() {
         const sum = this.state.list.reduce((prev, next) => {
-            return parseInt(prev) + parseInt(next);
+            return parseFloat(prev) + parseFloat(next);
         },0);
+
         this.props.onDone(this.props.id, sum);
     }
 
