@@ -20,13 +20,19 @@ export default class ExpenseList extends Component {
             amount: e.target.value
         });
     }
+
+    onKeyPress(e) {
+        if(e.key === 'Enter') {
+            this.onClickAdd();
+        }
+    }
     
     onClickAdd() {
-        this.refs.txtAmount.focus();
          this.setState({
             list: this.state.list.concat(this.state.amount),
             amount: ''
         });
+        this.refs.txtAmount.focus();
     }
 
     onClickDone() {
@@ -54,6 +60,7 @@ export default class ExpenseList extends Component {
                             className='form-amount' 
                             placeholder='Enter Amount'
                             onChange={this.onChange.bind(this)}
+                            onKeyPress={this.onKeyPress.bind(this)}
                             value={this.state.amount}
                             type="number"/>
                     </div>
