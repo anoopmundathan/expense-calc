@@ -22,7 +22,7 @@ export default class ExpenseList extends Component {
     }
 
     onKeyPress(e) {
-        if(e.key === 'Enter') {
+        if(e.key === 'Enter' && e.target.value !== '') {
             this.onClickAdd();
         }
     }
