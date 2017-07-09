@@ -102,6 +102,7 @@ class App extends Component {
             personTwoFinalAmount: personTwoFinalAmount
         });
         const expenseObj = {
+            id: Math.floor(Math.random() * 1000),
             totalAmount: total,
             perHeadAmount: perHead,
             personOneFinalAmount: personOneFinalAmount,

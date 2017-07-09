@@ -1,7 +1,9 @@
 import queryString from 'query-string';
 
+const apiUrl = 'https://aqueous-atoll-82890.herokuapp.com/expenses';
+
 const saveExpense = (expense) => {
-    fetch('http://localhost:3000/expenses', {
+    fetch(apiUrl, {
         method: 'POST',
         headers: {'Content-Type': 'application/x-www-form-urlencoded'},
         body: queryString.stringify(expense)
