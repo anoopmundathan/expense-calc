@@ -34,6 +34,12 @@ app.use((req, res, next) => {
   next();
 });
 
+app.get('/expenses', (req, res, next) => {
+     Expense.find({}, (err, expenses) => {
+        if(err) console.log(err);
+        res.json(expenses);
+    });
+});
 app.post('/expenses', (req, res, next) => {
     Expense.create(req.body, (err) => {
         if(err) return next(err);
