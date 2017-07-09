@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import ExpenseList from './ExpenseList';
+import saveExpense from '../api';
 
 import anoopPic from '../anoop.png';
 import vipinPic from '../vipin.png';
@@ -100,6 +101,13 @@ class App extends Component {
             personOneFinalAmount: personOneFinalAmount,
             personTwoFinalAmount: personTwoFinalAmount
         });
+        const expenseObj = {
+            totalAmount: total,
+            perHeadAmount: perHead,
+            personOneFinalAmount: personOneFinalAmount,
+            personTwoFinalAmount: personTwoFinalAmount
+        };
+        saveExpense(expenseObj);
     }
 
     render() {
@@ -140,7 +148,7 @@ class App extends Component {
                            <p>{personOneAmount}</p>
                        </div>
                     }
-                    
+
                     {!personTwo &&
                         <Person
                             image={vipinPic}
