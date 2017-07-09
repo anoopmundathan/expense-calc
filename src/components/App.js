@@ -46,12 +46,12 @@ class App extends Component {
             personTwo: '',
             personOneUpdated: false,
             personTwoUpdated: false,
-            personOneAmount: 0,
-            personTwoAmount: 0,
-            totalAmount: 0,
-            perHeadAmount: 0,
-            personOneFinalAmount: 0,
-            personTwoFinalAmount: 0
+            personOneAmount: null,
+            personTwoAmount: null,
+            totalAmount: null,
+            perHeadAmount: null,
+            personOneFinalAmount: null,
+            personTwoFinalAmount: null
         }
     }
 
@@ -141,7 +141,6 @@ class App extends Component {
                        </div>
                     }
                     
-
                     {!personTwo &&
                         <Person
                             image={vipinPic}
