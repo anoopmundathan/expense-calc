@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import PropTypes from 'prop-types';
 
 export default class ExpenseList extends Component {
@@ -6,8 +7,12 @@ export default class ExpenseList extends Component {
         super(props);
         this.state = {
             list: [],
-            amount: 0
+            amount: ''
         }
+    }
+    
+    componentDidMount() {
+        this.refs.txtAmount.focus();
     }
 
     onChange(e) {
@@ -17,6 +22,7 @@ export default class ExpenseList extends Component {
     }
     
     onClickAdd() {
+        this.refs.txtAmount.focus();
          this.setState({
             list: this.state.list.concat(this.state.amount),
             amount: ''
@@ -24,10 +30,10 @@ export default class ExpenseList extends Component {
     }
 
     onClickDone() {
+        this.refs.txtAmount.focus();
         const sum = this.state.list.reduce((prev, next) => {
             return parseFloat(prev) + parseFloat(next);
         },0);
-
         this.props.onDone(this.props.id, sum);
     }
 
@@ -44,6 +50,7 @@ export default class ExpenseList extends Component {
                 <div className='form-container'>
                     <div className='form-amount-container'>
                         <input
+                            ref='txtAmount'
                             className='form-amount' 
                             placeholder='Enter Amount'
                             onChange={this.onChange.bind(this)}

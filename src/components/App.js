@@ -178,8 +178,8 @@ class App extends Component {
                         <div className='person'>
                             <p>Total:{this.state.totalAmount}</p>
                             <p>PerHead:{this.state.perHeadAmount}</p>
-                            <p>Person1 Amount: {this.state.personOneFinalAmount}</p>
-                            <p>Person2 Amount: {this.state.personTwoFinalAmount}</p>
+                            <p>Anoop's Amount: {this.state.personOneFinalAmount}</p>
+                            <p>Vipin's Amount: {this.state.personTwoFinalAmount}</p>
                         </div>
                     }
                 </div>
