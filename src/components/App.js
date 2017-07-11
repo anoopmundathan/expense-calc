@@ -1,5 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+
+import Nav from './Nav';
+import Header from './Header';
+import Footer from './Footer';
+
+// import { BrowserRouter as Router, Route } from 'react-router-dom';
+
 import ExpenseList from './ExpenseList';
 import saveExpense from '../api';
 
@@ -52,7 +59,8 @@ class App extends Component {
             totalAmount: null,
             perHeadAmount: null,
             personOneFinalAmount: null,
-            personTwoFinalAmount: null
+            personTwoFinalAmount: null,
+            hamburgerClick: false
         }
     }
 
@@ -111,6 +119,12 @@ class App extends Component {
         saveExpense(expenseObj);
     }
 
+    onHamburgerClick() {
+        this.setState({
+            hamburgerClick: !this.state.hamburgerClick
+        });
+    }
+
     render() {
         
         const personOne = this.state.personOne;
@@ -122,13 +136,22 @@ class App extends Component {
         const personOneFinalAmount = this.state.personOneFinalAmount;
         const personTwoFinalAmount = this.state.personTwoFinalAmount;
 
+        const navClass = ['nav'];
+        let mainClass = null;
+        if(this.state.hamburgerClick) {
+            navClass.push('open');
+            mainClass = 'move';
+        }    
+
         return(
             <div className='container'>
-                <div className='header'>
-                    <h1>masakanak</h1>
-                </div>
-                <div className='person-container'>
-
+                <Nav 
+                    navClass={navClass}/>
+                <main className={mainClass}>
+                    <Header 
+                        heading='expense'
+                        onHamburgerClick={this.onHamburgerClick.bind(this)}/>
+                    <div className='person-container'>
                     {!personOne &&
                         <Person
                             image={anoopPic}
@@ -190,7 +213,9 @@ class App extends Component {
                             <p>Vipin's Amount: {this.state.personTwoFinalAmount}</p>
                         </div>
                     }
-                </div>
+                    </div>
+                    <Footer />
+                </main>
             </div>
         );
     }
