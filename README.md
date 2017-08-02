@@ -1,5 +1,5 @@
 # expense-calc
-Expense calc app in React
+Expense calc app in React - [Live](https://anoopmundathan.github.io/expense-calc/build/)
 
 ## Getting Started
 ### Setup
